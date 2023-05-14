@@ -9,25 +9,22 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'standard-with-typescript'
-  ],
+  extends: ['plugin:vue/vue3-strongly-recommended', 'standard'],
   overrides: [
   ],
-  "parser": 'vue-eslint-parser',
+  'parser': 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json'],
+    ecmaVersion: 12,
     parser: '@typescript-eslint/parser',
-    extraFileExtensions: ['.vue']
+    sourceType: 'module'
   },
   plugins: [
     'vue',
     '@typescript-eslint'
   ],
   rules: {
-    '@typescript-eslint/triple-slash-reference': 'off'
+    'vue/no-mutating-props': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   }
 }
