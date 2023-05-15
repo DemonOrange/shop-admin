@@ -4,7 +4,7 @@ module.exports = {
     defineEmits: 'readonly',
     defineExpose: 'readonly',
     withDefaults: 'readonly',
-    ResponseData: true
+    onMounted: true
   },
   env: {
     browser: true,
@@ -14,12 +14,6 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-strongly-recommended', 'standard'],
   overrides: [
-    {
-      files: ['src/api/**/*.ts'],
-      rules: {
-        camelcase: 'off'
-      }
-    }
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {

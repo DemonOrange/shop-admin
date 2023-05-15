@@ -1,0 +1,5 @@
+// 全局Sass变量
+$color: orange;
+:export {
+    menuText: $color;
+}

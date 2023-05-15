@@ -4,7 +4,7 @@ module.exports = {
     defineEmits: 'readonly',
     defineExpose: 'readonly',
     withDefaults: 'readonly',
-    ResponseData: true
+    onMounted: true
   },
   env: {
     browser: true,
