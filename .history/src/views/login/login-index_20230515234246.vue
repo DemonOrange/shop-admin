@@ -7,7 +7,7 @@ import { getLogoInfo } from '@/api/common'
 import { onMounted } from 'vue'
 onMounted(() => {
   getLogoInfo().then(res => {
-    console.log(res.data.data)
+    console.log(res.data.data.login_logo)
   })
 })
 </script>
