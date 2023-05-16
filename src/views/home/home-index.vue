@@ -7,10 +7,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useStore } from '../../store/index'
-import User from '@/api/user'
+// import User from '@/api/user'
 const store = useStore()
 const count = ref(store.state.count)
-console.log(User)
+// console.log(User)
 </script>
 
 <style lang="scss" scoped>

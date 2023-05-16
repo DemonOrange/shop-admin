@@ -4,10 +4,15 @@
 
 <script setup lang="ts">
 import { getLogoInfo } from '@/api/common'
-import { onMounted } from 'vue'
+import type { ILoginInfo } from '@/api/types/common'
+import { onMounted, ref } from 'vue'
+const list = ref<ILoginInfo['slide']>([])
 onMounted(() => {
-  getLogoInfo().then(res => {
-    console.log(res.data.data)
+  console.log(import.meta.env)
+  getLogoInfo().then(data => {
+    console.log(data)
+    list.value = data.slide
+    console.log(list.value)
   })
 })
 </script>
