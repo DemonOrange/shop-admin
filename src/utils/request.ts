@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 const request = axios.create({
-  baseURL: 'https://shop.fed.lagounews.com/api/admin'
+  // baseURL: import.meta.env.VITE_API_URL
 })
 // 请求拦截器
 request.interceptors.request.use(function (config) {
@@ -21,4 +21,9 @@ request.interceptors.response.use(function (response) {
   // Do something with response error
   return Promise.reject(error)
 })
-export default request
+// 封装泛型请求方法
+export default <T = any> (config: AxiosRequestConfig) => {
+  return request(config).then(res => {
+    return res.data.data as T
+  })
+}
