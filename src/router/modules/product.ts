@@ -3,18 +3,25 @@ const routes: RouteRecordRaw = {
   name: 'product',
   path: '/product',
   component: RouterView,
+  meta: {
+    title: '商品',
+    second: true
+  },
   children: [
     {
       name: 'product_list',
       path: 'product_list',
-      component: async () => await import('@/views/product/list/list-index.vue')
+      component: async () => await import('@/views/product/list/list-index.vue'),
+      meta: {
+        title: '商品列表'
+      }
     },
     {
-      path: 'add_product',
-      name: 'product-add',
+      path: 'product_add',
+      name: 'product_add',
       component: async () => await import('@/views/product/add/add-index.vue'),
       meta: {
-        title: '添加商品'
+        title: '商品添加'
       }
     },
     {
