@@ -1,6 +1,6 @@
 // 公共基础接口封装
 import request from '@/utils/request'
-import { ILoginInfo } from './types/common'
+import { ILoginInfo, IloginResponse, IlogOut } from './types/common'
 // interface ResponseData<T = any> {
 //   status: number,
 //   msg: string,
@@ -18,7 +18,7 @@ export const getLogoInfo = () => {
   //   msg: string
   // data: {
   //   login_square: string,
-  //   login_rectangle: string,
+  //   login_rectangle: string, b
   //   login_logo: string,
   //   slide: string[]
   // }
@@ -31,4 +31,28 @@ export const getLogoInfo = () => {
   // }>>('/login/info').then(res => {
   //   return res.data
   // })
+}
+export const getCaptcha = () => {
+  return request<Blob>({
+    method: 'GET',
+    url: '/admin/captcha_pro',
+    responseType: 'blob' // 请求获取图片数据
+  })
+}
+export const login = (data: {
+  account: string,
+  pwd: string,
+  imgcode: string
+}) => {
+  return request<IloginResponse>({
+    method: 'POST',
+    url: '/admin/login',
+    data
+  })
+}
+export const logOut = () => {
+  return request<IlogOut>({
+    method: 'GET',
+    url: '/admin/setting/admin/logout'
+  })
 }

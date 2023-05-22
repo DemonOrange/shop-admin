@@ -1,9 +1,11 @@
 // typings.d.ts or router.ts
 
 import 'vue-router'
-// eslint-disabled-next-line no-unused-vars
+
 declare module 'vue-router' {
+  // eslint-disabled-next-line no-unused-vars
   interface RouteMeta {
-    title: string
+    title?: string,
+    requiresAuth?: boolean
   }
 }

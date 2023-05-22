@@ -1,55 +1,29 @@
 <template>
   <el-menu
-    active-text-color="#ffd04b"
-    background-color="#304156"
+    :unique-opened="false"
+    :default-active="$route.path"
     class="el-menu-vertical-demo"
-    default-active="2"
-    text-color="#fff"
-    :unique-opened="true"
+    background-color="#304156"
+    text-color="rgba(255, 255, 255, 0.7)"
+    active-text-color="#2d8cf0"
     :collapse="$store.state.isCollapse"
     router
   >
-    <el-menu-item index="/">
-      <el-icon><House /></el-icon>
-      <template #title>
-        <div>首页</div>
-      </template>
-    </el-menu-item>
-    <el-sub-menu index="">
-      <template #title>
-        <el-icon><GoodsFilled /></el-icon>
-        <span>商品</span>
-      </template>
-      <el-menu-item index="/product/product_list">
-        <template #title>
-          <div>商品列表</div>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/product/product_classify">
-        <template #title>
-          <div>商品分类</div>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/product/product_attr">
-        <template #title>
-          <div>商品规格</div>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/product/product_add">
-        <template #title>
-          <div>商品添加</div>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/product/product_reply">
-        <template #title>
-          <div>商品评论</div>
-        </template>
-      </el-menu-item>
-    </el-sub-menu>
+    <menu-item
+      v-for="menu in $store.state.menus"
+      :key="menu.path"
+      :menu="menu" />
   </el-menu>
 </template>
 
 <script lang="ts" setup>
+import menuItem from './menu-item.vue'
+import { onMounted } from 'vue'
+import { useStore } from '@/store'
+const store = useStore()
+onMounted(() => {
+  console.log('$store.state.isCollapse: ', store)
+})
 </script>
 <style lang="scss" scoped>
   .el-menu {
